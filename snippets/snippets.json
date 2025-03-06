@@ -1,0 +1,651 @@
+{
+    "React Functional Component": {
+        "prefix": "rfce",
+        "body": [
+            "import React from 'react';",
+            "",
+            "const ${1:ComponentName} = () => {",
+            "  return (",
+            "    <div>",
+            "      $0",
+            "    </div>",
+            "  );",
+            "};",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React functional component with export"
+    },
+    "React Functional Component with Hooks": {
+        "prefix": "rfch",
+        "body": [
+            "import React, { useState, useEffect } from'react';",
+            "",
+            "const ${1:ComponentName} = () => {",
+            "  const [state, setState] = useState(${2:initialValue});",
+            "",
+            "  useEffect(() => {",
+            "    // cleanup function",
+            "    return () => {",
+            "      // cleanup code",
+            "    };",
+            "  }, []);",
+            "",
+            "  return (",
+            "    <div>",
+            "      $0",
+            "    </div>",
+            "  );",
+            "};",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React functional component with hooks and export"
+    },
+    "React Class Component": {
+        "prefix": "rclass",
+        "body": [
+            "import React from'react';",
+            "",
+            "class ${1:ComponentName} extends React.Component {",
+            "  constructor(props) {",
+            "    super(props);",
+            "    this.state = {",
+            "      $2",
+            "    };",
+            "  }",
+            "",
+            "  render() {",
+            "    return (",
+            "      <div>",
+            "        $0",
+            "      </div>",
+            "    );",
+            "  }",
+            "}",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React class component with export"
+    },
+    "React Class Component with State": {
+        "prefix": "rclass-state",
+        "body": [
+            "import React from'react';",
+            "",
+            "class ${1:ComponentName} extends React.Component {",
+            "  constructor(props) {",
+            "    super(props);",
+            "    this.state = {",
+            "      $2",
+            "    };",
+            "  }",
+            "",
+            "  handleClick = () => {",
+            "    this.setState({",
+            "      $3",
+            "    });",
+            "  }",
+            "",
+            "  render() {",
+            "    return (",
+            "      <div onClick={this.handleClick}>",
+            "        $0",
+            "      </div>",
+            "    );",
+            "  }",
+            "}",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React class component with state and export"
+    },
+    "React Class Component with Lifecycle Methods": {
+        "prefix": "rclass-lifecycle",
+        "body": [
+            "import React from'react';",
+            "",
+            "class ${1:ComponentName} extends React.Component {",
+            "  constructor(props) {",
+            "    super(props);",
+            "    this.state = {",
+            "      $2",
+            "    };",
+            "  }",
+            "  componentDidMount() {",
+            "    // Called after the component is rendered to the DOM",
+            "  }",
+            "",
+            "  componentDidUpdate(prevProps, prevState) {",
+            "    // Called after the component is updated, but only if new props or state are received",
+            "  }",
+            "",
+            "  componentWillUnmount() {",
+            "    // Called before the component is removed from the DOM",
+            "  }",
+            "",
+            "  render() {",
+            "    return (",
+            "      <div>",
+            "        $0",
+            "      </div>",
+            "    );",
+            "  }",
+            "}",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React class component with lifecycle methods and export"
+    },
+    "React Functional Component with Props": {
+        "prefix": "rfcp",
+        "body": [
+            "import React from 'react';",
+            "",
+            "const ${1:ComponentName} = (props) => {",
+            "  return (",
+            "    <div>",
+            "      {props.${2:propName}}",
+            "      $0",
+            "    </div>",
+            "  );",
+            "};",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React functional component with props"
+    },
+    "useState Hook": {
+        "prefix": "us",
+        "body": [
+            "const [${1:state}, set${2:State}] = useState(${3:initialState});",
+            "$0"
+        ],
+        "description": "Create a useState hook"
+    },
+    "useEffect Hook": {
+        "prefix": "ue",
+        "body": [
+            "useEffect(() => {",
+            "  ${1:/* effect */}",
+            "  return () => {",
+            "    ${2:/* cleanup */}",
+            "  };",
+            "}, [${3:/* dependencies */}]);",
+            "$0"
+        ],
+        "description": "Create a useEffect hook"
+    },
+    "React Context Provider": {
+        "prefix": "rcp",
+        "body": [
+            "import React, { createContext, useState } from 'react';",
+            "",
+            "export const ${1:ContextName}Context = createContext();",
+            "",
+            "const ${1:ContextName}Provider = ({ children }) => {",
+            "  const [${2:state}, set${3:State}] = useState(${4:initialState});",
+            "",
+            "  return (",
+            "    <${1:ContextName}Context.Provider value={{ ${2:state}, set${3:State} }}>",
+            "      {children}",
+            "    </${1:ContextName}Context.Provider>",
+            "  );",
+            "};",
+            "",
+            "export default ${1:ContextName}Provider;"
+        ],
+        "description": "Create a React context provider"
+    },
+    "Custom Hook": {
+        "prefix": "hook",
+        "body": [
+            "import { useState, useEffect } from 'react';",
+            "",
+            "const use${1:HookName} = (${2:params}) => {",
+            "  const [${3:state}, set${3:State}] = useState(${4:initialValue});",
+            "",
+            "  useEffect(() => {",
+            "    ${5:/* effect */}",
+            "    return () => {",
+            "      ${6:/* cleanup */}",
+            "    };",
+            "  }, [${7:/* dependencies */}]);",
+            "",
+            "  return { ${3:state}, set${3:State} };",
+            "};",
+            "",
+            "export default use${1:HookName};"
+        ],
+        "description": "Create a custom hook"
+    },
+    "useContext Hook": {
+        "prefix": "uc",
+        "body": [
+            "const ${1:context} = useContext(${2:ContextName}Context);",
+            "$0"
+        ],
+        "description": "Create a useContext hook"
+    },
+    "React Router Setup": {
+        "prefix": "rrs",
+        "body": [
+            "import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';",
+            "",
+            "const App = () => {",
+            "  return (",
+            "    <Router>",
+            "      <Switch>",
+            "        <Route path=\"/${1:path}\" component={${2:Component}} />",
+            "      </Switch>",
+            "    </Router>",
+            "  );",
+            "};",
+            "",
+            "export default App;"
+        ],
+        "description": "Setup React Router"
+    },
+    "Prop Types": {
+        "prefix": "pt",
+        "body": [
+            "import PropTypes from 'prop-types';",
+            "",
+            "${1:ComponentName}.propTypes = {",
+            "  ${2:propName}: PropTypes.${3:type}${4:,}",
+            "};",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Add prop types to a component"
+    },
+    "Default Props": {
+        "prefix": "dp",
+        "body": [
+            "${1:ComponentName}.defaultProps = {",
+            "  ${2:propName}: ${3:defaultValue}${4:,}",
+            "};",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Add default props to a component"
+    },
+    "React Class Component": {
+        "prefix": "rcc",
+        "body": [
+            "import React, { Component } from 'react';",
+            "",
+            "class ${1:ComponentName} extends Component {",
+            "  state = {",
+            "    ${2:state}",
+            "  };",
+            "",
+            "  render() {",
+            "    return (",
+            "      <div>",
+            "        $0",
+            "      </div>",
+            "    );",
+            "  }",
+            "}",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React class component"
+    },
+    "React Class Component with Constructor": {
+        "prefix": "rccp",
+        "body": [
+            "import React, { Component } from 'react';",
+            "",
+            "class ${1:ComponentName} extends Component {",
+            "  constructor(props) {",
+            "    super(props);",
+            "    this.state = {",
+            "      ${2:state}",
+            "    };",
+            "  }",
+            "",
+            "  render() {",
+            "    return (",
+            "      <div>",
+            "        $0",
+            "      </div>",
+            "    );",
+            "  }",
+            "}",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React class component with constructor"
+    },
+    "React Pure Component": {
+  "prefix": "rpc",
+  "body": [
+    "import React, { PureComponent } from 'react';",
+    "",
+    "class ${1:ComponentName} extends PureComponent {",
+    "  state = {",
+    "    ${2:state}",
+    "  };",
+    "",
+    "  render() {",
+    "    return (",
+    "      <div>",
+    "        $0",
+    "      </div>",
+    "    );",
+    "  }",
+    "}",
+    "",
+    "export default ${1:ComponentName};"
+  ],
+  "description": "Create a React pure component"
+}
+,
+"React Memo": {
+  "prefix": "rm",
+  "body": [
+    "import React, { memo } from 'react';",
+    "",
+    "const ${1:ComponentName} = memo(() => {",
+    "  return (",
+    "    <div>",
+    "      $0",
+    "    </div>",
+    "  );",
+    "});",
+    "",
+    "export default ${1:ComponentName};"
+  ],
+  "description": "Create a React memo component"
+}
+,
+"React Forward Ref": {
+  "prefix": "rfr",
+  "body": [
+    "import React, { forwardRef } from 'react';",
+    "",
+    "const ${1:ComponentName} = forwardRef((props, ref) => {",
+    "  return (",
+    "    <div ref={ref}>",
+    "      $0",
+    "    </div>",
+    "  );",
+    "});",
+    "",
+    "export default ${1:ComponentName};"
+  ],
+  "description": "Create a React forwardRef component"
+}
+,
+"React Fragment": {
+  "prefix": "rf",
+  "body": [
+    "import React, { Fragment } from 'react';",
+    "",
+    "const ${1:ComponentName} = () => {",
+    "  return (",
+    "    <Fragment>",
+    "      $0",
+    "    </Fragment>",
+    "  );",
+    "};",
+    "",
+    "export default ${1:ComponentName};"
+  ],
+  "description": "Create a React fragment"
+}
+,
+"Styled Component": {
+  "prefix": "sc",
+  "body": [
+    "import styled from 'styled-components';",
+    "",
+    "const ${1:ComponentName} = styled.${2:element}`",
+    "  ${3:styles}",
+    "`;",
+    "",
+    "export default ${1:ComponentName};"
+  ],
+  "description": "Create a styled component"
+}
+,
+"Styled Component with Props": {
+  "prefix": "scp",
+  "body": [
+    "import styled from 'styled-components';",
+    "",
+    "const ${1:ComponentName} = styled.${2:element}`",
+    "  ${3:styles}",
+    "  ${4:props} => {",
+    "    ${5:styles with props}",
+    "  }",
+    "`;",
+    "",
+    "export default ${1:ComponentName};"
+  ],
+  "description": "Create a styled component with props"
+}
+,
+"Redux Action": {
+  "prefix": "redux-action",
+  "body": [
+    "export const ${1:actionName} = (${2:payload}) => {",
+    "  return {",
+    "    type: ${3:ACTION_TYPE},",
+    "    payload: ${2:payload}",
+    "  };",
+    "};"
+  ],
+  "description": "Create a Redux action"
+}
+,
+"Redux Reducer": {
+  "prefix": "redux-reducer",
+  "body": [
+    "const initialState = {",
+    "  ${1:initialState}",
+    "};",
+    "",
+    "const ${2:reducerName} = (state = initialState, action) => {",
+    "  switch(action.type) {",
+    "    case ${3:ACTION_TYPE}:",
+    "      return {",
+    "        ...state,",
+    "        ${4:stateChange}",
+    "      };",
+    "    default:",
+    "      return state;",
+    "  }",
+    "};",
+    "",
+    "export default ${2:reducerName};"
+  ],
+  "description": "Create a Redux reducer"
+},
+"Redux Store": {
+  "prefix": "redux-store",
+  "body": [
+    "import { createStore, applyMiddleware } from 'redux';",
+    "import thunk from 'redux-thunk';",
+    "import rootReducer from './reducers';",
+    "",
+    "const store = createStore(",
+    "  rootReducer,",
+    "  applyMiddleware(thunk)",
+    ");",
+    "",
+    "export default store;"
+  ],
+  "description": "Create a Redux store"
+}
+,
+  "Redux Thunk Action": {
+    "prefix": "redux-thunk-action",
+    "body": [
+      "export const ${1:actionName} = () => async (dispatch) => {",
+      "  try {",
+      "    // Make API call",
+      "    const response = await fetch('API_URL');",
+      "    const data = await response.json();",
+      "",
+      "    // Dispatch success action",
+      "    dispatch({",
+      "      type: ${3:ACTION_TYPE},",
+      "      payload: data",
+      "    });",
+      "  } catch (error) {",
+      "    // Dispatch error action",
+      "    dispatch({",
+      "      type: ${4:ERROR_ACTION},",
+      "      payload: error.message",
+      "    });",
+      "  }",
+      "};"
+    ],
+    "description": "Create a Redux thunk action"
+  },
+  "Redux Saga Action": {
+    "prefix": "redux-saga-action",
+    "body": [
+      "import { takeLatest, put } from'redux-saga/effects';",
+      "",
+      "function* ${1:actionName}(action) {",
+      "  try {",
+      "    // Make API call",
+      "    const response = yield fetch('API_URL');",
+      "    const data = yield response.json();",
+      "",
+      "    // Dispatch success action",
+      "    yield put({",
+      "      type: ${2:SUCCESS_ACTION},",
+      "      payload: data",
+      "    });",
+      "  } catch (error) {",
+      "    // Dispatch error action",
+      "    yield put({",
+      "      type: ${3:ERROR_ACTION},",
+      "      payload: error.message",
+      "    });",
+      "  }",
+      "}"
+    ],
+    "description": "Create a Redux saga action"
+    },
+    "Redux Saga Effect": {
+        "prefix": "redux-saga-effect",
+        "body": [
+            "import { call, put } from'redux-saga/effects';",
+            "",
+            "function* ${1:effectName}() {",
+            "  try {",
+            "    // Make API call",
+            "    const response = yield call(fetch, 'API_URL');",
+            "    const data = yield response.json();",
+            "",
+            "    // Dispatch success action",
+            "    yield put({",
+            "      type: ${2:SUCCESS_ACTION},",
+            "      payload: data",
+            "    });",
+            "  } catch (error) {",
+            "    // Dispatch error action",
+            "    yield put({",
+            "      type: ${3:ERROR_ACTION},",
+            "      payload: error.message",
+            "    });",
+            "  }",
+            "}"
+            ],
+        "description": "Create a Redux saga effect"
+    },
+    "Jest Test Suite": {
+  "prefix": "jest-suite",
+  "body": [
+    "describe('${1:ComponentName} Tests', () => {",
+    "  test('${2:should do something}', () => {",
+    "    ${3:/* test implementation */}",
+    "  });",
+    "});"
+  ],
+  "description": "Create a Jest test suite"
+}
+,
+  "React Testing Library Test": {
+    "prefix": "rtl-test",
+    "body": [
+      "import React from'react';",
+      "import { render, fireEvent } from '@testing-library/react';",
+      "import ${1:ComponentName} from './${1:ComponentName}';",
+      "describe('${1:ComponentName} Component', () => {",
+      "  test('renders ${1:ComponentName} correctly', () => {",
+      "    const { getByText } = render(<${1:ComponentName} />);",
+      "    expect(getByText('Hello, World!')).toBeInTheDocument();",
+      "  });",
+      "  test('clicking button updates state', () => {",
+      "    const { getByText, getByLabelText } = render(<${1:ComponentName} />);",
+      "    const button = getByText('Toggle');",
+      "    fireEvent.click(button);",
+      "    expect(getByLabelText('Toggled')).toBeInTheDocument();",
+      "  });",
+      "});"
+      ],
+    "description": "Create a React Testing Library test"
+  },
+  "React Testing Library Test with Redux": {
+    "prefix": "rtl-redux-test",
+    "body": [
+      "import React from'react';",
+      "import { render, fireEvent } from '@testing-library/react';",
+      "import { Provider } from'react-redux';",
+      "import store from './store';",
+      "import ${1:ComponentName} from './${1:ComponentName}';",
+      "describe('${1:ComponentName} Component', () => {",
+      "  test('renders ${1:ComponentName} correctly', () => {",
+      "    const { getByText } = render(<Provider store={store}><${1:ComponentName} /></Provider>);",
+      "    expect(getByText('Hello, World!')).toBeInTheDocument();",
+      "  });",
+      "  test('clicking button updates state', () => {",
+      "    const { getByText, getByLabelText } = render(<Provider store={store}><${1:ComponentName} /></Provider>);",
+      "    const button = getByText('Toggle');",
+      "    fireEvent.click(button);",
+      "    expect(getByLabelText('Toggled')).toBeInTheDocument();",
+      "  });",
+      "});"
+      ],
+    "description": "Create a React Testing Library test with Redux"
+    },
+    "React Testing Library Test with Redux Saga": {
+        "prefix": "rtl-redux-saga-test",
+        "body": [
+            "import React from'react';",
+            "import { render, fireEvent } from '@testing-library/react';",
+            "import { Provider } from'react-redux';",
+            "import { createStore, applyMiddleware } from'redux';",
+            "import createSagaMiddleware from'redux-saga';",
+            "import rootSaga from './sagas';",
+            "import store from './store';",
+            "import ${1:ComponentName} from './${1:ComponentName}';",
+            "describe('${1:ComponentName} Component', () => {",
+            "  test('renders ${1:ComponentName} correctly', () => {",
+            "    const sagaMiddleware = createSagaMiddleware();",
+            "    const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));",
+            "    sagaMiddleware.run(rootSaga);",
+            "    const { getByText } = render(<Provider store={store}><${1:ComponentName} /></Provider>);",
+            "    expect(getByText('Hello, World!')).toBeInTheDocument();",
+            "  });",
+            "  test('clicking button updates state', () => {",
+            "    const sagaMiddleware = createSagaMiddleware();",
+            "    const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));",
+            "    sagaMiddleware.run(rootSaga);",
+            "    const { getByText, getByLabelText } = render(<Provider store={store}><${1:ComponentName} /></Provider>);",
+            "    const button = getByText('Toggle');",
+            "    fireEvent.click(button);",
+            "    expect(getByLabelText('Toggled')).toBeInTheDocument();",
+            "  });",
+            "});"
+            ],
+        "description": "Create a React Testing Library test with Redux Saga"
+    }
+
+}
